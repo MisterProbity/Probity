@@ -2,6 +2,7 @@
 
 const Admin = require("../Model/admin")
 const Book = require("../Model/book")
+const {resolve} = require("path")
 
 const getAboutAdmin = (req, res)=>{
     res.render("admin/about.ejs")
@@ -81,19 +82,63 @@ const getAgricAdmin = async(req, res)=>{
 }
 
 const addAgric = async(req, res)=>{
-    try {
-        let admin = req?.session?.admin?.id
-            let book = new Book(req.body)
-            console.log(req.body);
+    let document = req.files.document
+    let other = {title,author,issbn,location,year,programme,description}
+    let admin = req?.session?.admin?.id
+    // let other = {author:this.author,issbn:this.issbn,location:this.location,year:this.year,programme:this.programme,description:this.description}
+    // body = {document,...other}
+    // console.log(other)
+    let book = new Book({document,...other})
+try {
+    if(document){
+        if(!document.mimetype.startsWith("application/")){
+            req.flash("Error", "only document are expected")
+            console.log("only document are expected");
+            req.session.formBody = req.body
+            req.session.formErrors = {}
+            return res.redirect("back")
+        }
+        if(document.size > 5 * 1024 *1024 ){
+            req.flash("Errors","File is too large. Maximum of 5mb is allowed")
+            req.session.formBody = req.body
+            req.session.formErrors = {}
+            return res.redirect("back")
+        }
+        const fileName = `${(Math.random() * 10 ).toString(36) + Number(new Date())}.${document.mimetype.split("/")[1]}` 
+        console.log(fileName);
+        let filePath = "file-upload/document/" + fileName
+        console.log(filePath);
+
+           document.mv(resolve(filePath),(err)=>{
+            if(!err){
+                book.document = "/document/" + fileName
+                console.log(document);
+                book.admin_id = admin;
+                book.document.save()
+                book.other.update()
+
+                console.log("saved in to the file");
+                return res.redirect("back")
+
+            }
+            else{
+                req.flash("Error", "Unable to upload your file")
+                req.session.formBody = req.body
+                req.session.formErrors = {}
+                console.log("unable to upload your file");
+                return res.redirect("back")
+            }
+           })
+        }else{
             book.admin_id = admin
             await book.save()
             res.redirect("back")
-                console.log("Agricultural book added to the system successfully.");
+            console.log("Agricultural book added to the system successfully.");
         }
+    }
   catch (error) {
-            
-            console.log("failed to add Agricultural");
-            res.redirect("back")
+        console.log("failed to add Agricultural");
+        res.redirect("back")
     }
 
     }

@@ -7,12 +7,13 @@ const path =require("path")
 const userRout = require("./routes.js/user_route")
 const port = 4000;
 const session = require('express-session');                                     
+const flash = require("express-flash")
 const authenticateUser = require("./middleware/authenticate")
 const { index } = require("./controller/courseController")
 const login_routes = require("./routes.js/login_routes")
 const admin = require("./routes.js/admin_route")
 const authenticateAdmin = require("./middleware/authenticateAdmin")
-
+const fileupload = require("express-fileupload")
 
 // session handler
 app.use(                                              
@@ -24,15 +25,17 @@ app.use(
 
     })
 );
-
-
+// app.use(express.cookieParsewe)=
+app.use(flash({locals:  "flash"}))
 app.use(function(req, res, next){
     res.locals.formBody = req.session.formBody;
     res.locals.formError = req.session.formErrors;
     delete req.session.formBody;
     delete req.session.formErrors;
+
     next()
 })
+app.use(fileupload())
 // express body passer
 app.use(express.urlencoded({extended:true}))
 

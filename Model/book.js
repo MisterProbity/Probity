@@ -61,20 +61,8 @@ static async FetchAgric(id){
         AgricResult.push(new this(result))
     } 
 return AgricResult;
-
-
  }
- static async FetchAllAgric(){
-    let AgricResult = []
-    let sql = `SELECT * FROM books WHERE (programme = "Agricultural Engineering")  `
-    let [results] = await conn.execute(sql)
-    for(const result of results){
-        AgricResult.push(new this(result))
-    } 
-return AgricResult;
 
-
-}
 
 static async FetchArchi(id){
     let ArchiResult = []
