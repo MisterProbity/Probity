@@ -57,6 +57,10 @@ const getSearch = (req,res)=>{
     res.render("simplesearch")
 }
 
+const getborrow = (req,res)=>{
+    res.render("borrow")
+}
+
 const getSearchByYear = (req,res)=>{
     res.render("searchYear.ejs")
 }
@@ -215,7 +219,7 @@ const geturban  = async(req, res)=>{
 
 
 
-module.exports = { getAbout, getAdminR, getProgramme, getLoan, getOpac, getsign, getsignin, 
+module.exports = { getAbout, getAdminR, getProgramme, getLoan, getborrow, getOpac, getsign, getsignin, 
 getLecturer, getSearch, getSearchByAuthor, getSearchBySubject, getSearchByYear,
  getAgric, getBiomedical,getBiotechnology, getArchitecture, getCivil, getBiochemistry,
 getBuildingTech, getChemical, getComputerEngr,getComputerScience, getCyber, getElectrical,

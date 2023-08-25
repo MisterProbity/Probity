@@ -4,16 +4,17 @@ const app = express()
 const fs =require("fs")
 const path =require("path")
 
-const userRout = require("./routes.js/user_route")
 const port = 4000;
 const session = require('express-session');                                     
 const flash = require("express-flash")
 const authenticateUser = require("./middleware/authenticate")
-const { index } = require("./controller/courseController")
+// const { index } = require("./controller/courseController")
+const userRout = require("./routes.js/user_route")
 const login_routes = require("./routes.js/login_routes")
 const admin = require("./routes.js/admin_route")
 const authenticateAdmin = require("./middleware/authenticateAdmin")
 const fileupload = require("express-fileupload")
+// const { type } = require("os")
 
 // session handler
 app.use(                                              
@@ -60,3 +61,5 @@ try {
   console.log(error.status);
 }
 })
+
+

@@ -28,6 +28,17 @@ const getLoanAdmin= (req, res)=>{
 const getOpacAdmin= (req, res)=>{
     res.render("admin/opac.ejs")
 }
+
+const getborrowAdmin= async(req, res)=>{
+    let id = req?.session?.admin?.id
+    let bk_id = await Book.findId(id)
+
+    let book = await Book.borrowID(id, bk_id)
+    // let admin = await Admin.findId(id)
+    console.log(id,bk_id);
+    res.render("admin/borrow.ejs")
+}
+//  
 const getsignAdmin= (req, res)=>{
     res.render("admin/signUp.ejs")
 }
@@ -83,12 +94,12 @@ const getAgricAdmin = async(req, res)=>{
 
 const addAgric = async(req, res)=>{
     let document = req.files.document
-    let other = {title,author,issbn,location,year,programme,description}
+    // let other = {title,author,issbn,location,year,programme,description}
     let admin = req?.session?.admin?.id
     // let other = {author:this.author,issbn:this.issbn,location:this.location,year:this.year,programme:this.programme,description:this.description}
     // body = {document,...other}
     // console.log(other)
-    let book = new Book({document,...other})
+    let book = new Book(req.body)
 try {
     if(document){
         if(!document.mimetype.startsWith("application/")){
@@ -114,8 +125,8 @@ try {
                 book.document = "/document/" + fileName
                 console.log(document);
                 book.admin_id = admin;
-                book.document.save()
-                book.other.update()
+                book.save()
+                // book.other.update()
 
                 console.log("saved in to the file");
                 return res.redirect("back")
@@ -328,11 +339,11 @@ const getComputerEngrAdmin  = async(req, res)=>{
     res.render("admin/computerEngr.ejs", {computerEngrCourses})
 }
 
-const addComputerEngnr = async(req, res)=>{
+const addComputerEngr = async(req, res)=>{
     try {
         let admin = req?.session?.admin?.id
             let book = new Book(req.body)
-            console.log(req.body);
+            // console.log(req.body);
             book.admin_id = admin
             await book.save()
             res.redirect("back")
@@ -856,12 +867,12 @@ module.exports = {
     getBiomedicalAdmin,getBiotechnologyAdmin,getBuildingTechAdmin,
     getChemicalAdmin,getCivilAdmin,getComputerEngrAdmin,getComputerScienceAdmin,getCyberAdmin,
     getElectricalAdmin,getEstateMgtAdmin,getForensicAdmin,getIndustrialProductionAdmin,
-    getLecturerAdmin,getLoanAdmin, getOpacAdmin,getProgrammeAdmin,getSearchAdmin,getSearchByAuthorAdmin,
+    getLecturerAdmin,getLoanAdmin, getborrowAdmin, getOpacAdmin,getProgrammeAdmin,getSearchAdmin,getSearchByAuthorAdmin,
     getSearchBySubjectAdmin,getindustrialAdmin,getmathsAdmin,getmechanicalAdmin,getmechatronicsAdmin,getmicrobiologyAdmin,
     getpetroleumAdmin,getquantityAdmin,getsurveyAdmin,getsoftwareAdmin,geturbanAdmin,getsltAdmin,getstatisticsAdmin,getsignAdmin,
     getSearchByYearAdmin,getfoodScienceAdmin,getphysicsAdmin,HomeAdmin,addUserAdmin,indexAdmin,
     addBiochemistry, addAgric,addArchitecture,addBioctechnology,
-    addBiomedical,addBuildingTech,addChemical,addCivil,addComputerEngnr,addComputerScience,addCyber,
+    addBiomedical,addBuildingTech,addChemical,addCivil,addComputerEngr,addComputerScience,addCyber,
     addElectrical,addEstateMgt,addForensic,addIndustrialProduction,addfoodScience,addindustrial,
     addmaths,addmechanical,addmechatronics,addmicrobiology,addpetroleum, addphysics,addquantity,
     addslt,addsoftware,addstatistics,addsurvey,addurban}

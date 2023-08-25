@@ -100,7 +100,7 @@ return BiomedResult;
  }
  static async FetchAllBiomed(){
     let BiomedResult = []
-    let sql = `SELECT * FROM books WHERE (programme = "BBiomedical Engineering")  `
+    let sql = `SELECT * FROM books WHERE (programme = "Biomedical Engineering")  `
     let [results] = await conn.execute(sql)
     for(const result of results){
         BiomedResult.push(new this(result))
@@ -147,7 +147,7 @@ return BuildingResult;
  }
  static async FetchAllBuilding(){
     let BuildingResult = []
-    let sql = `SELECT * FROM books WHERE (programme = "BBuildingTech")  `
+    let sql = `SELECT * FROM books WHERE (programme = "BuildingTech")  `
     let [results] = await conn.execute(sql)
     for(const result of results){
         BuildingResult.push(new this(result))
@@ -448,7 +448,19 @@ static async FetchMechatronics(id){
 return MechatronicsResult;
 
 
- }
+}
+static async borrowID(admID,id){
+    let result = [];
+    let sql = `SELECT document FROM books WHERE (admin_id = ?) AND (id=?) `
+    var [results]  =await conn.execute(sql,[admID, id]);
+    for (let res of results ) {
+   result.push(new this(result))
+        
+    }
+    return result;
+    
+}
+
  static async FetchAllMechatronics(){
     let MechatronicsResult = []
     let sql = `SELECT * FROM books WHERE (programme = "Mechatronics Engineering")  `

@@ -1,13 +1,13 @@
 const {Router} = require("express")
 const {getAccess} = require("../controller/courseController.js")
 const { getAbout, getHome, getProgramme, getLecturer, getOpac, getsign, getsignin,
-getLoan, getAgric, getBiotechnology, getBiomedical, getCivil, getBiochemistry,
+getLoan, getBorrow, getAgric, getBiotechnology, getBiomedical, getCivil, getBiochemistry,
 getBuildingTech, getChemical, getComputerEngr, getComputerScience, getCyber,
 getElectrical, getEstateMgt, getfoodScience, getForensic, getindustrial,
 getIndustrialProduction, getmaths, getmechanical, getmechatronics,
 getmicrobiology, getpetroleum, getphysics, getquantity, getslt, getsoftware, 
 getstatistics, getsurvey, geturban, getSearch, getSearchByAuthor, getSearchByYear,
-getSearchBySubject, getAdminR, addUser, Home } = require("../controller/programsController.js")
+getSearchBySubject, getAdminR, addUser, Home, getborrow } = require("../controller/programsController.js")
 const { getArchitecture } = require("../controller/programsController.js")
 const userRout = Router()
 
@@ -18,6 +18,7 @@ userRout.get("/about", getAbout)
 userRout.get("/home", Home)
 userRout.get("/program", getProgramme)
 userRout.get("/loan", getLoan)
+userRout.get("/borrow", getborrow)
 userRout.get("/lecturer", getLecturer)
 userRout.get("/opac", getOpac)
 

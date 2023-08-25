@@ -1,6 +1,6 @@
 const {Router} = require("express");
 const { getAdmin } = require("../controller/programsController");
-const { getAboutAdmin, getProgrammeAdmin, getLoanAdmin, getLecturerAdmin, getOpacAdmin, getSearchAdmin, 
+const { getAboutAdmin, getProgrammeAdmin, getLoanAdmin, getborrowAdmin, getLecturerAdmin, getOpacAdmin, getSearchAdmin, 
      getSearchByAuthorAdmin, getSearchByYearAdmin, getSearchBySubjectAdmin, getAdminRAdmin, getAgricAdmin,
      getBiotechnologyAdmin, getBiomedicalAdmin, getCivilAdmin, getArchitectureAdmin, getBiochemistryAdmin,
      getBuildingTechAdmin, getChemicalAdmin, getComputerEngrAdmin, getComputerScienceAdmin, getCyberAdmin,
@@ -8,7 +8,7 @@ const { getAboutAdmin, getProgrammeAdmin, getLoanAdmin, getLecturerAdmin, getOpa
      getIndustrialProductionAdmin, getmathsAdmin, getmechanicalAdmin, getmechatronicsAdmin, getmicrobiologyAdmin,
      getpetroleumAdmin, getphysicsAdmin, getquantityAdmin, getsltAdmin, getsoftwareAdmin, getstatisticsAdmin,
      getsurveyAdmin, geturbanAdmin, HomeAdmin, indexAdmin, addBiochemistry, addArchitecture, addAgric,
-      addBiomedical, addBioctechnology, addCivil, addBuildingTech, addChemical, addComputerEngnr, 
+      addBiomedical, addBioctechnology, addCivil, addBuildingTech, addChemical, addComputerEngr, 
       addComputerScience, addCyber, addEstateMgt, addfoodScience, addForensic, addindustrial, 
       addIndustrialProduction, addmaths, addmechanical, addmechatronics, addmicrobiology, addpetroleum, 
       addphysics, addquantity, addslt, addsoftware, addstatistics, addsurvey, addurban, addElectrical, } = require("../controller/adminProgramController");
@@ -21,6 +21,7 @@ admin.get("/about", getAboutAdmin)
 admin.get("/home", HomeAdmin)
 admin.get("/program", getProgrammeAdmin)
 admin.get("/loan", getLoanAdmin)
+admin.get("/borrow", getborrowAdmin)
 admin.get("/lecturer", getLecturerAdmin)
 admin.get("/opac", getOpacAdmin)
 admin.get("",indexAdmin)
@@ -61,7 +62,7 @@ admin.post("/chemical",addChemical)
 
 
 admin.get("/computerEngr", getComputerEngrAdmin)
-admin.post("/computerEngr",addComputerEngnr)
+admin.post("/computerEngr",addComputerEngr)
 
 
 admin.get("/computerScience", getComputerScienceAdmin)
