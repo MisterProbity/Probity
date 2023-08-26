@@ -146,8 +146,8 @@
   },
   "scripts": {
     "start:dev": "nodemon",
-    "build":"npm install",
-    "start": "node server.js",
+    "build": "npm install",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -162,5 +162,8 @@
   "bugs": {
     "url": "https://github.com/Ridwanullahi-super/ProbityLibrary/issues"
   },
-  "homepage": "https://github.com/Ridwanullahi-super/ProbityLibrary#readme"
+  "homepage": "https://github.com/Ridwanullahi-super/ProbityLibrary#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
