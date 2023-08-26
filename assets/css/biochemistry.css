@@ -44,8 +44,8 @@ a{
     color:blue ;
 }
 
-strong{
-	color: red;
+em{
+	color: rgba(202, 94, 153, 0.772);
 }
 
 #shelve{
@@ -54,3 +54,6 @@ strong{
 	background-size: cover;
 }
 
+#element{
+	font-size: smaller;
+}

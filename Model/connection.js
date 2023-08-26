@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database:"library"
+    database:"probity_libsys"
 });
 connection.connect();
 console.log("database is connected!");

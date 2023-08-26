@@ -4,7 +4,7 @@ const app = express()
 const fs =require("fs")
 const path =require("path")
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 const session = require('express-session');                                     
 const flash = require("express-flash")
 const authenticateUser = require("./middleware/authenticate")
