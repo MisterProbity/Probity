@@ -1,6 +1,6 @@
 const Model = require("./model");
 const conn = require("./connection")
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 class Admin extends Model{
     static async login (email, pass){
