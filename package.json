@@ -145,6 +145,9 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
+    "start:dev": "nodemon",
+    "build":"npm install",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
