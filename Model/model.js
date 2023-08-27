@@ -1,6 +1,6 @@
 const mysql = require("mysql2")
 const conn = require("../Model/connection");
-const bcrypt =require("bcrypt")
+const bcrypt =require("bcryptjs")
 const salt = 10;
 const pluralize = require("pluralize")
 

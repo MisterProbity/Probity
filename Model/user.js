@@ -1,5 +1,5 @@
 const Model = require("./model");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const conn = require("../Model/connection");
 
 class User extends Model{
