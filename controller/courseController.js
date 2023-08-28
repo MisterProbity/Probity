@@ -27,7 +27,7 @@ try {
 let index = async(req, res)=>{
     let users = (await User.fetch())
     let count = users.length  
-    res.render("probityLMS.ejs",{count})
+    res.render("ProbityLMS.ejs",{count})
 }
 
 
