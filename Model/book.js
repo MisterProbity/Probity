@@ -53,7 +53,7 @@ return computerResult;
 }
 // end of computer science
 
-static async FetchAgric(id){
+static async FetchAg(id){
     let AgricResult = []
     let sql = `SELECT * FROM books WHERE (programme = "Agricultural Engineering") AND (admin_id = ?) `
     let [results] = await conn.execute(sql, [id])
@@ -89,7 +89,7 @@ return ArchiResult;
 
 static async FetchBiomed(id){
     let BiomedResult = []
-    let sql = `SELECT * FROM books WHERE (programme = "BBiomedical Engineering") AND (admin_id = ?) `
+    let sql = `SELECT * FROM books WHERE (programme = "Biomedical Engineering") AND (admin_id = ?) `
     let [results] = await conn.execute(sql, [id])
     for(const result of results){
         BiomedResult.push(new this(result))
@@ -123,7 +123,7 @@ return BiotechResult;
  }
  static async FetchAllBiotech(){
     let BiotechResult = []
-    let sql = `SELECT * FROM books WHERE (programme = "Bioctechnology")  `
+    let sql = `SELECT * FROM books WHERE (programme = "Biotechnology")  `
     let [results] = await conn.execute(sql)
     for(const result of results){
         BiotechResult.push(new this(result))
@@ -203,7 +203,7 @@ return CivilResult;
 
 }
 
-static async FetchomputerEngr(id){
+static async FetchCompEng(id){
     let ComputerEngrResult = []
     let sql = `SELECT * FROM books WHERE (programme = "Computer Engineering") AND (admin_id = ?) `
     let [results] = await conn.execute(sql, [id])
@@ -214,7 +214,7 @@ return ComputerEngrResult;
 
 
  }
- static async FetchAllComputerEngr(){
+ static async FetchAllCompEng(){
     let ComputerEngrResult = []
     let sql = `SELECT * FROM books WHERE (programme = "Computer Engineering")  `
     let [results] = await conn.execute(sql)
@@ -390,7 +390,7 @@ return IndustrialProResult;
 }
 
 
-static async FetchMaths(id){
+static async Fetchmth(id){
     let MathsResult = []
     let sql = `SELECT * FROM books WHERE (programme = "Mathematics") AND (admin_id = ?) `
     let [results] = await conn.execute(sql, [id])
@@ -401,7 +401,7 @@ return MathsResult;
 
 
  }
- static async FetchAllMaths(){
+ static async FetchAllmth(){
     let MathsResult = []
     let sql = `SELECT * FROM books WHERE (programme = "Mathematics")  `
     let [results] = await conn.execute(sql)
@@ -544,24 +544,24 @@ return PhyResult;
 
 
 static async FetchQuantity(id){
-    let QuantityResult = []
+    let quantResult = []
     let sql = `SELECT * FROM books WHERE (programme = "Quantity survey") AND (admin_id = ?) `
     let [results] = await conn.execute(sql, [id])
     for(const result of results){
-        QuantityResult.push(new this(result))
+        quantResult.push(new this(result))
     } 
-return QuantityResult;
+return quantResult;
 
 
  }
  static async FetchAllQuantity(){
-    let QuantityResult = []
+    let quantResult = []
     let sql = `SELECT * FROM books WHERE (programme = "Quantity survey")  `
     let [results] = await conn.execute(sql)
     for(const result of results){
-        QuantitylResult.push(new this(result))
+        quantResult.push(new this(result))
     } 
-return QuantityResult;
+return quantResult;
 
 
 }

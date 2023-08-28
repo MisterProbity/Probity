@@ -3,15 +3,15 @@ const { getAdmin } = require("../controller/programsController");
 const { getAboutAdmin, getProgrammeAdmin, getLoanAdmin, getborrowAdmin, getLecturerAdmin, getOpacAdmin, getSearchAdmin, 
      getSearchByAuthorAdmin, getSearchByYearAdmin, getSearchBySubjectAdmin, getAdminRAdmin, getAgricAdmin,
      getBiotechnologyAdmin, getBiomedicalAdmin, getCivilAdmin, getArchitectureAdmin, getBiochemistryAdmin,
-     getBuildingTechAdmin, getChemicalAdmin, getComputerEngrAdmin, getComputerScienceAdmin, getCyberAdmin,
-     getElectricalAdmin, getEstateMgtAdmin, getfoodScienceAdmin, getForensicAdmin, getindustrialAdmin, 
-     getIndustrialProductionAdmin, getmathsAdmin, getmechanicalAdmin, getmechatronicsAdmin, getmicrobiologyAdmin,
-     getpetroleumAdmin, getphysicsAdmin, getquantityAdmin, getsltAdmin, getsoftwareAdmin, getstatisticsAdmin,
+     getBuildingTechAdmin, getChemicalAdmin, getComputerEngAdmin, getComputerScienceAdmin, getCyberAdmin,
+     getElectricalAdmin, getEstateMgtAdmin, getFoodScienceAdmin, getForensicAdmin, getindustrialAdmin, 
+     getIndustrialProductionAdmin, getMathsAdmin, getmechanicalAdmin, getmechatronicsAdmin, getmicrobiologyAdmin,
+     getpetroleumAdmin, getphysicsAdmin, getQuantityAdmin, getsltAdmin, getsoftwareAdmin, getstatisticsAdmin,
      getsurveyAdmin, geturbanAdmin, HomeAdmin, indexAdmin, addBiochemistry, addArchitecture, addAgric,
-      addBiomedical, addBioctechnology, addCivil, addBuildingTech, addChemical, addComputerEngr, 
-      addComputerScience, addCyber, addEstateMgt, addfoodScience, addForensic, addindustrial, 
-      addIndustrialProduction, addmaths, addmechanical, addmechatronics, addmicrobiology, addpetroleum, 
-      addphysics, addquantity, addslt, addsoftware, addstatistics, addsurvey, addurban, addElectrical, } = require("../controller/adminProgramController");
+      addBiomedical, addBiotechnology, addCivil, addBuildingTech, addChemical, addComputerEng, 
+      addComputerScience, addCyber, addEstateMgt, addFoodScience, addForensic, addindustrial, 
+      addIndustrialProduction, addMaths, addmechanical, addmechatronics, addmicrobiology, addpetroleum, 
+      addphysics, addQuantity, addslt, addsoftware, addstatistics, addsurvey, addurban, addElectrical, } = require("../controller/adminProgramController");
 const admin = Router()
 
 // 
@@ -41,7 +41,7 @@ admin.post("/biomedical",addBiomedical)
 
 
 admin.get("/biotechnology",getBiotechnologyAdmin)
-admin.post("/biotechnology",addBioctechnology)
+admin.post("/biotechnology",addBiotechnology)
 
 
 admin.get("/civil",getCivilAdmin)
@@ -61,8 +61,8 @@ admin.get("/chemical", getChemicalAdmin)
 admin.post("/chemical",addChemical)
 
 
-admin.get("/computerEngr", getComputerEngrAdmin)
-admin.post("/computerEngr",addComputerEngr)
+admin.get("/computerEngr", getComputerEngAdmin)
+admin.post("/computerEngr",addComputerEng)
 
 
 admin.get("/computerScience", getComputerScienceAdmin)
@@ -78,8 +78,8 @@ admin.post("/electrical",addElectrical)
 admin.get("/estateMgt", getEstateMgtAdmin)
 admin.post("/estateMgt",addEstateMgt)
 
-admin.get("/foodscience", getfoodScienceAdmin)
-admin.post("/foodscience",addfoodScience)
+admin.get("/foodScience", getFoodScienceAdmin)
+admin.post("/foodScience",addFoodScience)
 
 admin.get("/forensic", getForensicAdmin)
 admin.post("/forensic",addForensic)
@@ -90,8 +90,8 @@ admin.post("/industrial",addindustrial)
 admin.get("/industrialProduction", getIndustrialProductionAdmin)
 admin.post("/industrialProduction",addIndustrialProduction)
 
-admin.get("/maths", getmathsAdmin)
-admin.post("/maths",addmaths)
+admin.get("/maths", getMathsAdmin)
+admin.post("/maths",addMaths)
 
 admin.get("/mechanical", getmechanicalAdmin)
 admin.post("/mechanical",addmechanical)
@@ -108,8 +108,8 @@ admin.post("/petroleum",addpetroleum)
 admin.get("/physics", getphysicsAdmin)
 admin.post("/physics",addphysics)
 
-admin.get("/quantity", getquantityAdmin)
-admin.post("/quantity",addquantity)
+admin.get("/quantity", getQuantityAdmin)
+admin.post("/quantity",addQuantity)
 
 admin.get("/slt", getsltAdmin)
 admin.post("/slt",addslt)

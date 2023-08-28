@@ -88,7 +88,7 @@ const getSearchBySubjectAdmin = (req,res)=>{
 // courses 
 const getAgricAdmin = async(req, res)=>{
     let id = req?.session?.admin?.id
-    let agricCourses = await Book.FetchAgric(id)
+    let agricCourses = await Book.FetchAg(id)
     res.render("admin/agric.ejs", {agricCourses})
 }
 
@@ -238,7 +238,7 @@ const getBiotechnologyAdmin = async(req, res)=>{
     res.render("admin/biotechnology.ejs", {biotechnologyCourses})
 }
 
-const addBioctechnology = async(req, res)=>{
+const addBiotechnology = async(req, res)=>{
     
     try {
         let admin = req?.session?.admin?.id
@@ -333,13 +333,13 @@ const addCivil = async(req, res)=>{
     }
 
 
-const getComputerEngrAdmin  = async(req, res)=>{
+const getComputerEngAdmin  = async(req, res)=>{
     let id = req?.session?.admin?.id
-    let computerEngrCourses = await Book.FetchComputerEngr(id)
+    let computerEngrCourses = await Book.FetchCompEng(id)
     res.render("admin/computerEngr.ejs", {computerEngrCourses})
 }
 
-const addComputerEngr = async(req, res)=>{
+const addComputerEng = async(req, res)=>{
     try {
         let admin = req?.session?.admin?.id
             let book = new Book(req.body)
@@ -410,8 +410,8 @@ const addCyber = async(req, res)=>{
 
 const getElectricalAdmin  = async(req, res)=>{
     let id = req?.session?.admin?.id
-    let electricalCourses = await Book.FetchElectrical(id)
-    res.render("admin/electrical.ejs", {electricalCourses})
+    let electricCourses = await Book.FetchElect(id)
+    res.render("admin/electrical.ejs", {electricCourses})
 }
 
 const addElectrical = async(req, res)=>{
@@ -458,13 +458,13 @@ const addEstateMgt = async(req, res)=>{
     }
 
 
-const getfoodScienceAdmin  = async(req, res)=>{
+const getFoodScienceAdmin  = async(req, res)=>{
     let id = req?.session?.admin?.id
     let foodScienceCourses = await Book.FetchFood(id)
     res.render("admin/foodScience.ejs", {foodScienceCourses})
 }
 
-const addfoodScience = async(req, res)=>{
+const addFoodScience = async(req, res)=>{
     try {
         let admin = req?.session?.admin?.id
             let book = new Book(req.body)
@@ -559,13 +559,13 @@ const addIndustrialProduction = async(req, res)=>{
 
 
 
-const getmathsAdmin  = async(req, res)=>{
+const getMathsAdmin  = async(req, res)=>{
     let id = req?.session?.admin?.id
-    let mathsCourses = await Book.FetchMaths(id)
+    let mathsCourses = await Book.Fetchmth(id)
     res.render("admin/maths.ejs", {mathsCourses})
 }
 
-const addmaths = async(req, res)=>{
+const addMaths = async(req, res)=>{
     try {
         let admin = req?.session?.admin?.id
             let book = new Book(req.body)
@@ -709,13 +709,13 @@ const addphysics = async(req, res)=>{
 
 
 
-const getquantityAdmin  = async(req, res)=>{
+const getQuantityAdmin  = async(req, res)=>{
     let id = req?.session?.admin?.id
     let quantityCourses = await Book.FetchQuantity(id)
     res.render("admin/quantity.ejs", {quantityCourses})
 }
 
-const addquantity = async(req, res)=>{
+const addQuantity = async(req, res)=>{
     try {
         let admin = req?.session?.admin?.id
             let book = new Book(req.body)
@@ -865,14 +865,14 @@ const addurban = async(req, res)=>{
 module.exports = {
     getAboutAdmin,getAdminRAdmin,getAgricAdmin,getArchitectureAdmin,getBiochemistryAdmin,
     getBiomedicalAdmin,getBiotechnologyAdmin,getBuildingTechAdmin,
-    getChemicalAdmin,getCivilAdmin,getComputerEngrAdmin,getComputerScienceAdmin,getCyberAdmin,
+    getChemicalAdmin,getCivilAdmin,getComputerEngAdmin,getComputerScienceAdmin,getCyberAdmin,
     getElectricalAdmin,getEstateMgtAdmin,getForensicAdmin,getIndustrialProductionAdmin,
     getLecturerAdmin,getLoanAdmin, getborrowAdmin, getOpacAdmin,getProgrammeAdmin,getSearchAdmin,getSearchByAuthorAdmin,
-    getSearchBySubjectAdmin,getindustrialAdmin,getmathsAdmin,getmechanicalAdmin,getmechatronicsAdmin,getmicrobiologyAdmin,
-    getpetroleumAdmin,getquantityAdmin,getsurveyAdmin,getsoftwareAdmin,geturbanAdmin,getsltAdmin,getstatisticsAdmin,getsignAdmin,
-    getSearchByYearAdmin,getfoodScienceAdmin,getphysicsAdmin,HomeAdmin,addUserAdmin,indexAdmin,
-    addBiochemistry, addAgric,addArchitecture,addBioctechnology,
-    addBiomedical,addBuildingTech,addChemical,addCivil,addComputerEngr,addComputerScience,addCyber,
-    addElectrical,addEstateMgt,addForensic,addIndustrialProduction,addfoodScience,addindustrial,
-    addmaths,addmechanical,addmechatronics,addmicrobiology,addpetroleum, addphysics,addquantity,
+    getSearchBySubjectAdmin,getindustrialAdmin,getMathsAdmin,getmechanicalAdmin,getmechatronicsAdmin,getmicrobiologyAdmin,
+    getpetroleumAdmin,getQuantityAdmin,getsurveyAdmin,getsoftwareAdmin,geturbanAdmin,getsltAdmin,getstatisticsAdmin,getsignAdmin,
+    getSearchByYearAdmin,getFoodScienceAdmin,getphysicsAdmin,HomeAdmin,addUserAdmin,indexAdmin,
+    addBiochemistry, addAgric,addArchitecture,addBiotechnology,
+    addBiomedical,addBuildingTech,addChemical,addCivil,addComputerEng,addComputerScience,addCyber,
+    addElectrical,addEstateMgt,addForensic,addIndustrialProduction,addFoodScience,addindustrial,
+    addMaths,addmechanical,addmechatronics,addmicrobiology,addpetroleum, addphysics,addQuantity,
     addslt,addsoftware,addstatistics,addsurvey,addurban}

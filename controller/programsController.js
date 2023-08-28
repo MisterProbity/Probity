@@ -76,7 +76,7 @@ const getSearchBySubject = (req,res)=>{
 
 // courses 
 const getAgric = async(req, res)=>{
-    let agricCourses = await Book.FetchAllAgric()
+    let agricCourses = await Book.FetchAllAg()
     res.render("agric.ejs", {agricCourses})
 }
 const getArchitecture = async(req, res)=>{
@@ -112,8 +112,8 @@ const getCivil = async(req, res)=>{
     res.render("civil.ejs", {civilCourses})
 }
 
-const getComputerEngr  = async(req, res)=>{
-    let computerEngrCourses = await Book.FetchAllComputerEngr()
+const getComputerEng  = async(req, res)=>{
+    let computerEngrCourses = await Book.FetchAllCompEng()
     res.render("computerEngr.ejs", {computerEngrCourses})
 }
 
@@ -128,8 +128,8 @@ const getCyber  = async(req, res)=>{
 }
 
 const getElectrical  = async(req, res)=>{
-    let electricalCourses = await Book.FetchAllElect()
-    res.render("electrical.ejs", {electricalCourses})
+    let electricCourses = await Book.FetchAllElect()
+    res.render("electrical.ejs", {electricCourses})
 }
 
 const getEstateMgt  = async(req, res)=>{
@@ -137,7 +137,7 @@ const getEstateMgt  = async(req, res)=>{
     res.render("estateMgt.ejs", {estateMgtCourses})
 }
 
-const getfoodScience  = async(req, res)=>{
+const getFoodScience  = async(req, res)=>{
     let foodScienceCourses = await Book.FetchAllFood()
     res.render("foodScience.ejs", {foodScienceCourses})
 }
@@ -157,8 +157,8 @@ const getIndustrialProduction  = async(req, res)=>{
     res.render("industrialproduction.ejs", {industrialProductionCourses})
 }
 
-const getmaths  = async(req, res)=>{
-    let mathsCourses = await Book.FetchAllmaths()
+const getMaths  = async(req, res)=>{
+    let mathsCourses = await Book.FetchAllmth()
     res.render("maths.ejs", {mathsCourses})
 }
 
@@ -187,7 +187,7 @@ const getphysics  = async(req, res)=>{
     res.render("physics.ejs", {physicsCourses})
 }
 
-const getquantity  = async(req, res)=>{
+const getQuantity  = async(req, res)=>{
     let quantityCourses = await Book.FetchAllQuantity()
     res.render("quantity.ejs", {quantityCourses})
 }
@@ -222,7 +222,7 @@ const geturban  = async(req, res)=>{
 module.exports = { getAbout, getAdminR, getProgramme, getLoan, getborrow, getOpac, getsign, getsignin, 
 getLecturer, getSearch, getSearchByAuthor, getSearchBySubject, getSearchByYear,
  getAgric, getBiomedical,getBiotechnology, getArchitecture, getCivil, getBiochemistry,
-getBuildingTech, getChemical, getComputerEngr,getComputerScience, getCyber, getElectrical,
-getEstateMgt, getForensic, getIndustrialProduction, getfoodScience, getindustrial, 
-getmaths, getmechanical, getmechatronics, getmicrobiology, getpetroleum, getphysics,
-getquantity, getslt, getsoftware, getstatistics, getsurvey, geturban,addUser,Home}
+getBuildingTech, getChemical, getComputerEng,getComputerScience, getCyber, getElectrical,
+getEstateMgt, getForensic, getIndustrialProduction, getFoodScience, getindustrial, 
+getMaths, getmechanical, getmechatronics, getmicrobiology, getpetroleum, getphysics,
+getQuantity, getslt, getsoftware, getstatistics, getsurvey, geturban,addUser,Home}

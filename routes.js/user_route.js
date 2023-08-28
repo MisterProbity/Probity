@@ -2,10 +2,10 @@ const {Router} = require("express")
 const {getAccess} = require("../controller/courseController.js")
 const { getAbout, getHome, getProgramme, getLecturer, getOpac, getsign, getsignin,
 getLoan, getBorrow, getAgric, getBiotechnology, getBiomedical, getCivil, getBiochemistry,
-getBuildingTech, getChemical, getComputerEngr, getComputerScience, getCyber,
-getElectrical, getEstateMgt, getfoodScience, getForensic, getindustrial,
-getIndustrialProduction, getmaths, getmechanical, getmechatronics,
-getmicrobiology, getpetroleum, getphysics, getquantity, getslt, getsoftware, 
+getBuildingTech, getChemical, getComputerEng, getComputerScience, getCyber,
+getElectrical, getEstateMgt, getFoodScience, getForensic, getindustrial,
+getIndustrialProduction, getMaths, getmechanical, getmechatronics,
+getmicrobiology, getpetroleum, getphysics, getQuantity, getslt, getsoftware, 
 getstatistics, getsurvey, geturban, getSearch, getSearchByAuthor, getSearchByYear,
 getSearchBySubject, getAdminR, addUser, Home, getborrow } = require("../controller/programsController.js")
 const { getArchitecture } = require("../controller/programsController.js")
@@ -38,22 +38,22 @@ userRout.get("/architecture",getArchitecture)
 userRout.get("/biochemistry", getBiochemistry)
 userRout.get("/buildingtech", getBuildingTech)
 userRout.get("/chemical", getChemical)
-userRout.get("/computerEngr", getComputerEngr)
+userRout.get("/ComputerEngr", getComputerEng)
 userRout.get("/computerScience", getComputerScience)
 userRout.get("/cyber", getCyber)
 userRout.get("/electrical", getElectrical)
 userRout.get("/estateMgt", getEstateMgt)
-userRout.get("/foodscience", getfoodScience)
+userRout.get("/foodScience", getFoodScience)
 userRout.get("/forensic", getForensic)
 userRout.get("/industrial", getindustrial)
 userRout.get("/industrialProduction", getIndustrialProduction)
-userRout.get("/maths", getmaths)
+userRout.get("/maths", getMaths)
 userRout.get("/mechanical", getmechanical)
 userRout.get("/mechatronics", getmechatronics)
 userRout.get("/microbiology", getmicrobiology)
 userRout.get("/petroleum", getpetroleum)
 userRout.get("/physics", getphysics)
-userRout.get("/quantity", getquantity)
+userRout.get("/quantity", getQuantity)
 userRout.get("/slt", getslt)
 userRout.get("/software", getsoftware)
 userRout.get("/statistics", getstatistics)

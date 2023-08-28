@@ -5,6 +5,7 @@ const fs =require("fs")
 const path =require("path")
 
 const session = require('express-session');                                     
+const MemoryStore = require('memorystore')(session);
 const flash = require("express-flash")
 const authenticateUser = require("./middleware/authenticate")
 // const { index } = require("./controller/courseController")
@@ -17,15 +18,16 @@ const port = process.env.PORT || 4000;
 // const { type } = require("os")
 
 // session handler
-app.use(                                              
-    session({
-      secret: "keyboard cat",
-      resave: false,
-      saveUninitialized: true,
-      cookie: {secure: false},
+server.use(session({
+  cookie: { maxAge: 604800000 },
+  store: new MemoryStore({
+    checkPeriod: 604800000 // prune expired entries every 7days
+  }),
+  resave: false,
+  secret: 'keyboard cat'
+}))
 
-    })
-);
+
 // app.use(express.cookieParsewe)=
 app.use(flash({locals:  "flash"}))
 app.use(function(req, res, next){
@@ -53,6 +55,8 @@ app.use("/admin",authenticateAdmin,admin)
 
 
 
+
+
 app.listen(port, (error)=>{
 try {
   console.log(`server is running on port http://localhost:${port}`)
@@ -61,5 +65,6 @@ try {
   console.log(error.status);
 }
 })
+
 
 
