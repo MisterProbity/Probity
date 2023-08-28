@@ -18,7 +18,7 @@ const port = process.env.PORT || 4000;
 // const { type } = require("os")
 
 // session handler
-server.use(session({
+app.use(session({
   cookie: { maxAge: 604800000 },
   store: new MemoryStore({
     checkPeriod: 604800000 // prune expired entries every 7days
