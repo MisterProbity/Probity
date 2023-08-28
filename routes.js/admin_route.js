@@ -30,8 +30,7 @@ admin.get("/searchAuthor", getSearchByAuthorAdmin)
 admin.get("/searchYear", getSearchByYearAdmin)
 admin.get("/searchSubject", getSearchBySubjectAdmin)
 admin.get("/indexAdmin", getAdminRAdmin)
-admin/
-admin/
+
 // courses admin/
 admin.get("/agric",getAgricAdmin)
 admin.post("/agric",addAgric)

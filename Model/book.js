@@ -53,7 +53,7 @@ return computerResult;
 }
 // end of computer science
 
-static async FetchAg(id){
+static async Fetchagriculture(id){
     let AgricResult = []
     let sql = `SELECT * FROM books WHERE (programme = "Agricultural Engineering") AND (admin_id = ?) `
     let [results] = await conn.execute(sql, [id])

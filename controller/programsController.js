@@ -76,7 +76,7 @@ const getSearchBySubject = (req,res)=>{
 
 // courses 
 const getAgric = async(req, res)=>{
-    let agricCourses = await Book.FetchAllAg()
+    let agricCourses = await Book.Fetchagriculture()
     res.render("agric.ejs", {agricCourses})
 }
 const getArchitecture = async(req, res)=>{

@@ -88,7 +88,7 @@ const getSearchBySubjectAdmin = (req,res)=>{
 // courses 
 const getAgricAdmin = async(req, res)=>{
     let id = req?.session?.admin?.id
-    let agricCourses = await Book.FetchAg(id)
+    let agricCourses = await Book.Fetchagriculture(id)
     res.render("admin/agric.ejs", {agricCourses})
 }
 
