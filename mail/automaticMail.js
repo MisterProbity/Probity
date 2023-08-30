@@ -11,12 +11,12 @@ async function autoReminder(email, name, title, deadline) {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "supecoded@gmail.com", // Your email id
-      pass: "uwrqbxpqbkgtwqos", // Your password
+      user: "waliuraheemprobity@gmail.com", // Your email id
+      pass: "unqoluverhbuknic", // Your password
     },
   });
   let mailOptions = {
-    from: { name: "Probity_Library", address: "supecoded@gmail.com" }, // sender address
+    from: { name: "Probity_Library", address: "waliuraheemprobity@gmail.com" }, // sender address
     to: email, // list of receivers
     subject: "Reminder for the return of books" , // Subject line
     html: `<!doctype html>

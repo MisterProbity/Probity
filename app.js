@@ -85,7 +85,6 @@ try {
     const fullname = last_Names[i] + " " + first_Names[i];
     const email  = emails [i];
     const title = titles[i];
-    // console.log(due_date)
     var DeadlineDate = new Date(due_date);
     DeadlineDate.setDate(DeadlineDate.getDate()-1)
     cron.schedule(`${DeadlineDate.getMinutes()} ${DeadlineDate.getHours()} ${DeadlineDate.getDate()} ${DeadlineDate.getMonth( )+ 1} ${DeadlineDate.getDay()}`,()=>{
