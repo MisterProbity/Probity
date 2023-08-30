@@ -17,7 +17,7 @@ class Book extends Model{
      }
      static async FetchAllBiochem(){
         let biochemResult = []
-        let sql = `SELECT * FROM books WHERE (programme = "Biochemistry")  `
+        let sql = `SELECT * FROM books WHERE (programme = "Biochemistry")`
         let [results] = await conn.execute(sql)
         for(const result of results){
             biochemResult.push(new this(result))
@@ -77,19 +77,17 @@ return ArchiResult;
  }
  static async FetchAllArchi(){
     let ArchiResult = []
-    let sql = `SELECT * FROM books WHERE (programme = "Architecture")  `
+    let sql = `SELECT * FROM books WHERE (programme = "Architecture")`
     let [results] = await conn.execute(sql)
     for(const result of results){
         ArchiResult.push(new this(result))
     } 
 return ArchiResult;
-
-
-}
+ }
 
 static async FetchBiomed(id){
     let BiomedResult = []
-    let sql = `SELECT * FROM books WHERE (programme = "Biomedical Engineering") AND (admin_id = ?) `
+    let sql = `SELECT * FROM books WHERE (programme = "Biomedical Engineering") AND (admin_id = ?)`
     let [results] = await conn.execute(sql, [id])
     for(const result of results){
         BiomedResult.push(new this(result))

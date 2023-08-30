@@ -3,6 +3,7 @@
 const Admin = require("../Model/admin")
 const Book = require("../Model/book")
 const {resolve} = require("path")
+const Loan = require("../Model/loan")
 
 const getAboutAdmin = (req, res)=>{
     res.render("admin/about.ejs")
@@ -30,18 +31,18 @@ const getOpacAdmin= (req, res)=>{
 }
 
 const getborrowAdmin= async(req, res)=>{
-    let id = req?.session?.admin?.id
-    let bk_id = await Book.findId(id)
-
-    let book = await Book.borrowID(id, bk_id)
-    // let admin = await Admin.findId(id)
-    console.log(id,bk_id);
-    res.render("admin/borrow.ejs")
+    let id = req?.params?.id
+    let book = await Book.findId(id)
+    let admin = req?.session?.admin;
+let borrowers = await Loan.patron(book.programme)
+    book.admin = await Admin.findId(book.admin_id)
+    res.render("admin/bookDetails.ejs",{book, borrowers})
 }
-//  
+
 const getsignAdmin= (req, res)=>{
     res.render("admin/signUp.ejs")
 }
+
 const addUserAdmin = async(req, res)=>{
     console.log("for me", req.body);
     try {

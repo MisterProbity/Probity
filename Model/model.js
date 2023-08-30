@@ -65,7 +65,7 @@ try {
     let [results] = await conn.execute(sql,[id]) 
 
 if (results.length>0) {
-    let result = result[0]
+    let result = results[0]
     return new this(result);
 }
 return null

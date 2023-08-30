@@ -12,9 +12,12 @@ try {
     let RegisterUser = await User.login(email, password)
     if(RegisterUser){
         req.session.user = RegisterUser;
+        console.log('you are welcome');
         res.redirect("/user/home")
     }
     else{
+        console.log("email or password is wrong");
+        console.log(password);
         res.redirect("back")
     }
 

@@ -3,7 +3,7 @@ const ejs = require("ejs")
 const app = express()
 const fs =require("fs")
 const path =require("path")
-
+const cron = require("node-cron")
 const session = require('express-session');                                     
 const MemoryStore = require('memorystore')(session);
 const flash = require("express-flash")
@@ -14,6 +14,8 @@ const login_routes = require("./routes.js/login_routes")
 const admin = require("./routes.js/admin_route")
 const authenticateAdmin = require("./middleware/authenticateAdmin")
 const fileupload = require("express-fileupload")
+const Loan = require("./Model/loan")
+const autoReminder = require("./mail/automaticMail")
 const port = process.env.PORT || 4000;
 // const { type } = require("os")
 
@@ -64,7 +66,31 @@ try {
 } catch (error) {
   console.log(error.status);
 }
-})
+});
 
 
+
+(async()=>{
+  var clients = await Loan.fetchPatron()
+  // console.log(clients);
+  const first_Names = clients.map(c=>c.first_Name)
+  const last_Names = clients.map(c=>c.last_Name)
+  const emails = clients.map(c=>c.email)
+  const titles = clients.map(c=>c.title)
+  const due_dates = clients.map(c=>c.due_date);
+  
+  for (let i = 0;  i < due_dates.length; i++){
+    
+    const due_date = due_dates[i];
+    const fullname = last_Names[i] + " " + first_Names[i];
+    const email  = emails [i];
+    const title = titles[i];
+    // console.log(due_date)
+    var DeadlineDate = new Date(due_date);
+    DeadlineDate.setDate(DeadlineDate.getDate()-1)
+    cron.schedule(`${DeadlineDate.getMinutes()} ${DeadlineDate.getHours()} ${DeadlineDate.getDate()} ${DeadlineDate.getMonth( )+ 1} ${DeadlineDate.getDay()}`,()=>{
+      autoReminder(email,fullname,title,due_date)
+    })
+  }
+})()
 
